@@ -43,6 +43,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-vimeo'
 
 gem 'twitter'
+gem 'vimeo'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
