@@ -42,6 +42,8 @@ gem 'omniauth'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'httparty'
+
 group :development do 
   gem 'better_errors'
   gem 'binding_of_caller'
