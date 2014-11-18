@@ -41,6 +41,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-vimeo'
+
 gem 'twitter'
 
 gem 'dotenv-rails', :groups => [:development, :test]
