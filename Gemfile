@@ -39,10 +39,16 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'debugger', group: [:development, :test]
 
 gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-vimeo'
+
+gem 'twitter'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
-group :development do 
+gem 'httparty'
+
+group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
