@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FeedMe</title>ok i'll watch 
+  <title>FeedMe</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= flash[:notice] %>
 <%= yield %>
+
 
 </body>
 </html>
