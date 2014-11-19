@@ -6,9 +6,9 @@
     <div class="row">ok i'll watch
       <% if session[:user_id] %>
         Welcome, <%= User.find(session[:user_id]).name %>!&nbsp;
-        <%= link_to "Log out", destroy_session_path, method: :delete %>
+        <%= link_to "Sign out", destroy_session_path, method: :delete %>
       <% else %>
-        <%= link_to "Log in with Vimeo", "/auth/vimeo" %>
+        <%= link_to "Sign in with Vimeo", "/auth/vimeo" %>
       <% end %>
     </div>
 
