@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
 
-  def search
+  def search_twitter_user
     # with search form, once screen_name is submitted, data will return in separate
     # search results view page.
     # regex? fuzzy search?
-    HTTParty.get("https://api.twitter.com/1.1/users/search.json?q=#{user}").parsed_response
+    query = params[:twitter_search]
+    response = HTTParty.get(" https://api.twitter.com/1.1/users/show.json?screen_name=#{query}")
   end
 
 
