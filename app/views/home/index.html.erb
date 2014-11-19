@@ -8,7 +8,7 @@
         Welcome, <%= User.find(session[:user_id]).name %>!&nbsp;
         <%= link_to "Sign out", destroy_session_path, method: :delete %>
         <% if Provider.find_by(user_id: session[:user_id], name: "twitter")==nil %>
-          <%= link_to "Connect via Twitter", "/auth/twitter" %> 
+          <%= link_to "Connect via Twitter", "/auth/twitter" %>
         <% end %>
         <% if Provider.find_by(user_id: session[:user_id], name: "vimeo")==nil %>
           <%= link_to "Connect via Vimeo", "/auth/vimeo" %>
