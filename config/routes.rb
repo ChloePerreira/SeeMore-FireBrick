@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  get '/auth/:provider/callback', to: 'sessions#create'
-  delete 'sessions', to: 'sessions#destroy', as: :destroy_session
-  post '/posts/search', to: 'posts#search_twitter_user', as: :twitter_search
+  get '/auth/:provider/callback',   to: 'sessions#create'
+  delete 'sessions',                to: 'sessions#destroy',                    as: :destroy_session
+  post '/posts/search',             to: 'posts#search_twitter_user',           as: :twitter_search
+  get '/twitter/results',           to: 'search#index',                        as: :twitter_results
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
