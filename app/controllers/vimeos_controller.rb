@@ -1,2 +1,0 @@
-class VimeosController < ApplicationController
-end
