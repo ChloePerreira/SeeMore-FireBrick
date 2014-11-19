@@ -8,6 +8,7 @@
         Welcome, <%= User.find(session[:user_id]).name %>!&nbsp;
         <%= link_to "Sign out", destroy_session_path, method: :delete %>
       <% else %>
+        <%= link_to "Sign in with Twitter", "/auth/twitter" %>
         <%= link_to "Sign in with Vimeo", "/auth/vimeo" %>
       <% end %>
     </div>
