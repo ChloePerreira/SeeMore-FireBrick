@@ -3,7 +3,7 @@
 <body>
   <div class="container">
 
-    <div class="row">ok i'll watch
+    <div class="row">
       <% if session[:user_id] %>
         Welcome, <%= User.find(session[:user_id]).name %>!&nbsp;
         <%= link_to "Sign out", destroy_session_path, method: :delete %>
