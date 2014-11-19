@@ -9,28 +9,30 @@ class SessionsController < ApplicationController
       @user = User.create(name: auth['info']['name'])
       @provider.user_id = @user.id
       @provider.save
-
     end
 
     if signed_in?
       if @provider.user == current_user
-        # redirect_to "/", notice: "Already linked that account!"
+         flash[:notice] = "Already linked that account!"
       else
         @provider.user = current_user
         @provider.save()
-        # redirect_to "/", notice: "Successfully linked that account!"
+         flash[:notice] = "Successfully linked that account!"
       end
     else
       if @provider.user.present?
         self.current_user = @provider.user
-        # redirect_to "/", notice: "Please finish registering"
+        flash[:notice] = "You have been successfully signed in."
+      else
+        flash[:notice] = "Please finish registering"
       end
     end
-    redirect_to "/"
+    redirect_to root_path
   end
 
   def destroy
     session[:user_id] = nil
+    flash[:notice] = "You have been successfully logged out."
     redirect_to root_path
   end
 end
