@@ -4,10 +4,9 @@ class SessionsController < ApplicationController
     # Log the user in here:
     auth = request.env['omniauth.auth']
     @provider = Provider.find_with_omniauth(auth)
-
     if @provider.nil?
       @provider = Provider.create_with_omniauth(auth)
-      @user = User.create
+      @user = User.create(name: auth['info']['name'])
       @provider.user_id = @user.id
       @provider.save
 
