@@ -19,5 +19,4 @@ class SearchController < ApplicationController
     @query = params[:twitter_search]
     set_twitter_client.user_search(@query, {page: @twitter_page})
   end
-
 end

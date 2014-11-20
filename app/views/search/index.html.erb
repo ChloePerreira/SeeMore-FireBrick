@@ -1,7 +1,9 @@
-<% @response.each do |user| %>
-<p> <img src= "<%= user.profile_image_url_https %>"></p>
+<h1>There <%= is_are(@response.count)%> <%= pluralize(@response.count, "user") %>
+    with the user name <em>"<%= @query %>"</em>.</h1>
 
-  <p><%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></p>
+<% @response.each do |user| %>
+  <h2><small><%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></small></h2>
+  <p> <img src= "<%= user.profile_image_url_https %>"></p>
   <p><% user.id %></p>
   <p><%= user.name %></p>
   <p><%= user.description %></p>
