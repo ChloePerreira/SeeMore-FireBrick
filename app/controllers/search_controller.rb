@@ -2,7 +2,6 @@ class SearchController < ApplicationController
 
   def index
     @response = search_twitter_user
-    raise
     #@response = results
     #raise
   end

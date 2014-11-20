@@ -1,1 +1,4 @@
-<%= @response.screen_name %>
+<% @response.each do |user| %>
+<%= user.screen_name %>
+<hr>
+<% end %>
