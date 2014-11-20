@@ -1,4 +1,4 @@
-
+RESULTS
 
 <% @response.each do |user| %>
   <p> <img src= "<%= user.profile_image_url_https %>"></p>
@@ -12,6 +12,11 @@
 
 
 
-<div>
-<%= link_to "Next Page", twitter_results_path({twitter_search: @query, twitter_page: @current_page += 1}) %>
-</div>
+<ul class="pagination">
+  <li class="<%="disabled" if @current_page == 1%>">
+    <%= link_to "Previous Page", twitter_results_path({twitter_search: @query, twitter_page: @previous_page }) %>
+  </li>
+  <li class="<%="disabled" if @current_page == 5%>">
+    <%= link_to "Next Page", twitter_results_path({twitter_search: @query, twitter_page: @next_page }) %>
+  </li>
+</ul>
