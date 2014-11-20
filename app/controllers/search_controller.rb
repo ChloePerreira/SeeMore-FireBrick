@@ -4,6 +4,9 @@ class SearchController < ApplicationController
     @response = search_twitter_user
     @current_page = params[:twitter_page].to_i || 1
     @query = params[:twitter_search]
+    if @current_page == 0 
+      @current_page = 1
+    end
   end
 
   def search_twitter_user
