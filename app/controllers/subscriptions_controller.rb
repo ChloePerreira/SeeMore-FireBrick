@@ -14,4 +14,10 @@ class SubscriptionsController < ApplicationController
     @client = set_twitter_client
   end
 
+  def destroy
+    @subscription = Subscription.find(params[:id])
+    @subscription.destroy
+    redirect_to show_subscriptions_path  
+  end
+
 end
