@@ -9,9 +9,8 @@ class SubscriptionsController < ApplicationController
     redirect_to twitter_results_path(twitter_search: params[:twitter_search], twitter_page: params[:twitter_page])
   end
 
-  def index
-    @subscriptions = Subscription.where(user_id: session[:user_id])
-    @client = set_twitter_client
+  def show
+
   end
 
 end
