@@ -1,12 +1,14 @@
-<% @response.each do |user| %>
-<p> <img src= "<%= user.profile_image_url_https %>"></p>
+<h1>There <%= is_are(@response.count)%> <%= pluralize(@response.count, "user") %>
+    with the user name <em>"<%= @query %>"</em>.</h1>
 
-  <p><%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></p>
+<% @response.each do |user| %>
+  <h2><small><%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></small></h2>
+  <p> <img src= "<%= user.profile_image_url_https %>"></p>
   <p><% user.id %></p>
   <p><%= user.name %></p>
   <p><%= user.description %></p>
   <% if !Subscription.find_by(user_id: session[:user_id], local_id: user.id.to_s) %>
-  <p><%= button_to "Subscribe", subscribe_path({media: "twitter", local_id: user.id, twitter_search: @query, twitter_page: @current_page}), class: "btn btn-default" %>
+  <p><%= button_to "Subscribe", subscribe_path({media: "twitter", local_id: user.id, provider_search: @query, provider_page: @current_page}), class: "btn btn-default" %>
   <% end %>
   <hr>
 <% end %>
@@ -15,9 +17,9 @@
 
 <ul class="pagination">
   <li class="<%="disabled" if @current_page == 1%>">
-    <%= link_to "Previous Page", twitter_results_path({twitter_search: @query, twitter_page: @previous_page }) %>
+    <%= link_to "Previous Page", twitter_results_path({provider_search: @query, provider_page: @previous_page }) %>
   </li>
   <li class="<%="disabled" if @current_page == 5%>">
-    <%= link_to "Next Page", twitter_results_path({twitter_search: @query, twitter_page: @next_page }) %>
+    <%= link_to "Next Page", twitter_results_path({provider_search: @query, provider_page: @next_page }) %>
   </li>
 </ul>
