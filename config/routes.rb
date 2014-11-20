@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback',   to: 'sessions#create'
   delete 'sessions',                to: 'sessions#destroy',                    as: :destroy_session
-  post '/posts/search',             to: 'posts#search_twitter_user',           as: :twitter_search
+  post '/search',                   to: 'search#index',                        as: :twitter_search
   get '/twitter/results',           to: 'search#index',                        as: :twitter_results
 
 
