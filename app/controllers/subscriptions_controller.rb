@@ -16,8 +16,4 @@ class SubscriptionsController < ApplicationController
 
   end
 
-
-    #query = params[:twitter_search]
-    #response = HTTParty.get(" https://api.twitter.com/1.1/users/show.json?screen_name=#{query}")
-
 end

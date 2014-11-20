@@ -2,23 +2,16 @@ class SearchController < ApplicationController
 
   def index
     @response = search_twitter_user
-    #@response = results
-    #raise
+    @current_page = params[:twitter_page].to_i || 1
+    @query = params[:twitter_search]
   end
 
   def search_twitter_user
-    # with search form, once screen_name is submitted, data will return in separate
-    # search results view page.
-    # regex? fuzzy search?
     set_twitter_client
-    query = params[:twitter_search]
-    set_twitter_client.user_search(query)
-    # raise
-    # #response = HTTParty.get(" https://api.twitter.com/1.1/users/show.json?screen_name=#{query}"
-    # redirect_to twitter_results_path
-    #raise.params
+    twitter_page = params[:twitter_page].to_i
+    @query = params[:twitter_search]
+    set_twitter_client.user_search(@query, {page: twitter_page})
   end
-
 
   private
 
