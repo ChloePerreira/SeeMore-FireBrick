@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   delete 'sessions',                to: 'sessions#destroy',                    as: :destroy_session
   post '/search',                   to: 'search#index',                        as: :twitter_search
   get '/twitter/results',           to: 'search#index',                        as: :twitter_results
-
+  post '/subscribe',                to: 'subscriptions#create',                as: :subscribe
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

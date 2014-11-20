@@ -7,6 +7,9 @@
   <p><% user.id %></p>
   <p><%= user.name %></p>
   <p><%= user.description %></p>
+  <% if !Subscription.find_by(user_id: session[:user_id], local_id: user.id.to_s) %>
+  <p><%= button_to "Subscribe", subscribe_path({media: "twitter", local_id: user.id, twitter_search: @query, twitter_page: @current_page}), class: "btn btn-default" %>
+  <% end %>
   <hr>
 <% end %>
 

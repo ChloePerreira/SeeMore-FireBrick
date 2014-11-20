@@ -4,12 +4,9 @@ class SubscriptionsController < ApplicationController
   #showing a user's tweets https://api.twitter.com/1.1/statuses/user_timeline.json?count=200&user_id=2788167642
 
   def create
-    @subscription = Subscription.new(type: params[:subscription][:type], local_id: params[:subscription][:local_id], user_id: session[:user_id]) #pass in type and local_id via params
-    if @subscription.save
-      redirect_to feed_path #make this path
-    else
-      render :new #this may be problematic
-    end
+    @subscription = Subscription.new(media: params[:media], user_id: session[:user_id], local_id: params[:local_id])
+    @subscription.save
+    redirect_to twitter_results_path(twitter_search: params[:twitter_search], twitter_page: params[:twitter_page])
   end
 
   def show
