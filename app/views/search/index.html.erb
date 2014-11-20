@@ -1,7 +1,7 @@
 <% @response.each do |user| %>
 <p> <img src= "<%= user.profile_image_url_https %>"></p>
 
-  <p><%= user.screen_name %></p>
+  <p><%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></p>
   <p><% user.id %></p>
   <p><%= user.name %></p>
   <p><%= user.description %></p>
