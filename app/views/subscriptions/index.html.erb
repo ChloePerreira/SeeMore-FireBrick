@@ -1,5 +1,5 @@
 <% @subscriptions.each do |subscription| %>
-  <% id = subscription.id %>
+  <% id = subscription.local_id.to_i %>
   <% user = @client.user(id) %>
   <p> <img src= "<%= user.profile_image_url_https %>"></p>
   <p><%= user.screen_name %></p>
