@@ -1,9 +1,17 @@
-<% @response.each do |user| %>
-<p> <img src= "<%= user.profile_image_url_https %>"></p> 
 
-<p><%= user.screen_name %></p>
-<p><% user.id %></p>
-<p><%= user.name %></p>
-<p><%= user.description %></p>
-<hr>
+
+<% @response.each do |user| %>
+  <p> <img src= "<%= user.profile_image_url_https %>"></p>
+
+  <p><%= user.screen_name %></p>
+  <p><% user.id %></p>
+  <p><%= user.name %></p>
+  <p><%= user.description %></p>
+  <hr>
 <% end %>
+
+
+
+<div>
+<%= link_to "Next Page", twitter_results_path({twitter_search: @query, twitter_page: @current_page += 1}) %>
+</div>
