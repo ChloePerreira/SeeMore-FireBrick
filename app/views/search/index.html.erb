@@ -1,5 +1,4 @@
-<h1>There <%= is_are(@response.count)%> <%= pluralize(@response.count, "user") %>
-    with the user name <em>"<%= @query %>"</em>.</h1>
+<h1>Here <%= is_are(@response.count)%> with the user name <em>"<%= @query %>"</em></h1>
 
 <% @response.each do |user| %>
   <h2><small><%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></small></h2>
