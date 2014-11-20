@@ -22,7 +22,7 @@
 
 
     <%= form_tag twitter_results_path, method: :get do %>
-      <%= text_field_tag :twitter_search, params[:twitter_search], :placeholder => "Username" %>
+      <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Username" %>
       <%= submit_tag "Search", :name => nil, :class => "button" %>
     <% end %>
 
