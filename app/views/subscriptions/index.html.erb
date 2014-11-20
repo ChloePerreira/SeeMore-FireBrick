@@ -6,7 +6,7 @@
   <p><% user.id %></p>
   <p><%= user.name %></p>
   <p><%= user.description %></p>
-  <p><%= button_to "Unsubscribe", root_path, class: "btn btn-default" %>
+  <p><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %>
   <hr>
 <% end %>
 
