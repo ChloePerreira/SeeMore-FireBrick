@@ -1,0 +1,13 @@
+<% @subscriptions.each do |subscription| %>
+  <% id = subscription.local_id.to_i %>
+  <% user = @client.user(id) %>
+  <p> <img src= "<%= user.profile_image_url_https %>"></p>
+  <p><%= user.screen_name %></p>
+  <p><% user.id %></p>
+  <p><%= user.name %></p>
+  <p><%= user.description %></p>
+  <p><%= button_to "Unsubscribe", root_path, class: "btn btn-default" %>
+  <hr>
+<% end %>
+
+

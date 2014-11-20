@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
     # Log the user in here:
     auth = request.env['omniauth.auth']
     @provider = Provider.find_with_omniauth(auth)
-
     if @provider.nil?
       @provider = Provider.create_with_omniauth(auth)
       @user = User.create(name: auth['info']['name'])
@@ -30,7 +29,6 @@ class SessionsController < ApplicationController
     end
     redirect_to root_path
   end
-
   def destroy
     session[:user_id] = nil
     flash[:notice] = "You have been successfully logged out."
