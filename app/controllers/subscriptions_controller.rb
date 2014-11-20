@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  
+
   #showing a user https://api.twitter.com/1.1/users/show.json?screen_name=crystaloptera
   #showing a user's tweets https://api.twitter.com/1.1/statuses/user_timeline.json?count=200&user_id=2788167642
 
@@ -13,11 +13,10 @@ class SubscriptionsController < ApplicationController
   end
 
   def show
-    @
-    
+
   end
-      
- 
+
+
     #query = params[:twitter_search]
     #response = HTTParty.get(" https://api.twitter.com/1.1/users/show.json?screen_name=#{query}")
 

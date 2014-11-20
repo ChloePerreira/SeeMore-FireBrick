@@ -2,6 +2,7 @@ class SearchController < ApplicationController
 
   def index
     @response = search_twitter_user
+    raise
     #@response = results
     #raise
   end
@@ -12,7 +13,7 @@ class SearchController < ApplicationController
     # regex? fuzzy search?
     set_twitter_client
     query = params[:twitter_search]
-    set_twitter_client.user(query)
+    set_twitter_client.user_search(query)
     # raise
     # #response = HTTParty.get(" https://api.twitter.com/1.1/users/show.json?screen_name=#{query}"
     # redirect_to twitter_results_path
