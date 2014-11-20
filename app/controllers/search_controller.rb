@@ -2,12 +2,15 @@ class SearchController < ApplicationController
 
   def index
     @response = search_twitter_user
+    @current_page = params[:twitter_page].to_i || 1
+    @query = params[:twitter_search]
   end
 
   def search_twitter_user
     set_twitter_client
-    query = params[:twitter_search]
-    set_twitter_client.user_search(query)
+    twitter_page = params[:twitter_page].to_i
+    @query = params[:twitter_search]
+    set_twitter_client.user_search(@query, {page: twitter_page})
   end
 
   private
