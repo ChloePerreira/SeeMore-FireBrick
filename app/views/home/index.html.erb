@@ -20,21 +20,18 @@
       <% end %>
     </div>
 
-
+    <div class="form-inline">
+      <div class="form-group">
     <%= form_tag twitter_results_path, method: :get do %>
-      <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Username" %>
-      <%= submit_tag "Search", :name => nil, :class => "button" %>
+      Twitter <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
+      <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
     <% end %>
 
-
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        Twitter<input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-default">Search</button>
-    </form>
-
-    </div>
+    <div class="form-inline">
+    <%= form_tag twitter_results_path, method: :get do %>
+      Vimeo <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
+      <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
+    <% end %>
   </div>
 </body>
 </html>
