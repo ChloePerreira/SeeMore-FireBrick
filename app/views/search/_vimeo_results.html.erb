@@ -1,10 +1,10 @@
-<h1>Here is <%= @query %></h1>
+<h1>Here are the top results for <em>"<%= @query %>"</em></h1>
 
 <% @results.each do |user|  %>
   <% user_object = Vimeo::Simple::User.info(user.uid) %>
 
   <p><img width="48px" src="<%= user_object["portrait_medium"] %>"</p>
-  <p><%= user_object["display_name"] %></p>
+  <h2><small><%= link_to "#{user_object["display_name"]}", "#{user_object["profile_url"]}" %></small></h2>
   <p><%= user_object["location"] %></p>
   <hr>
   <% end %>
