@@ -1,3 +1,6 @@
+<% if @subscriptions.size == 0 %>
+  Search for users to grow your feed!
+<% end %>
 <% @subscriptions.each do |subscription| %>
   <% id = subscription.local_id.to_i %>
   <% user = @client.user(id) %>

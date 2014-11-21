@@ -1,3 +1,7 @@
+<% if @tweets.size == 0 %>
+  Search for users to grow your feed!
+<% end %>
+
 <% @tweets.each do |t| %>
   <p> <img src= "<%= t.user.profile_image_url_https %>"></p>
   <p><%= t.user.screen_name %></p>
