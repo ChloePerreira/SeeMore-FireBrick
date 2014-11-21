@@ -1,29 +1,3 @@
+<h1>Here is <%= @query %></h1>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="pagination">
-  <li class="<%="disabled" if @current_page == 1%>">
-    <%= link_to "Previous Page", vimeo_results_path({provider_search: @query, provider_page: @previous_page }) %>
-  </li>
-  <li class="<%="disabled" if @current_page == 5%>">
-    <%= link_to "Next Page", vimeo_results_path({provider_search: @query, provider_page: @next_page }) %>
-  </li>
-</ul>
+<%= @response["display_name"] %>

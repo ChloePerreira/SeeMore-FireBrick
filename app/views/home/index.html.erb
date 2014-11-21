@@ -31,6 +31,7 @@
     <div class="form-inline">
     <%= form_tag vimeo_results_path, method: :get do %>
       Vimeo <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
+      <%= hidden_field_tag :provider, "vimeo" %>
       <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
     <% end %>
   </div>
