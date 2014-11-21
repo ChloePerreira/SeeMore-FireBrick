@@ -1,3 +1,5 @@
 <h1>Here is <%= @query %></h1>
 
-<%= @response["display_name"] %>
+<% @response.each do |user|  %>
+  <%= user.name %>
+  <% end %>

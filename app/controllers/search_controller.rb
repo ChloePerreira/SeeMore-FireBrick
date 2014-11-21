@@ -34,5 +34,6 @@ class SearchController < ApplicationController
 
   def search_vimeo_user
     @query = Beemo::User.search(params[:provider_search])
+
   end
 end
