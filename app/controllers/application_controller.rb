@@ -30,4 +30,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_vimeo_client
+    
+  end
+
 end

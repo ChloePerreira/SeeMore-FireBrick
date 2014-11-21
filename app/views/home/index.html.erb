@@ -24,11 +24,12 @@
       <div class="form-group">
     <%= form_tag twitter_results_path, method: :get do %>
       Twitter <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
+      <%= hidden_field_tag :provider, "twitter" %>
       <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
     <% end %>
 
     <div class="form-inline">
-    <%= form_tag twitter_results_path, method: :get do %>
+    <%= form_tag vimeo_results_path, method: :get do %>
       Vimeo <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
       <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
     <% end %>
