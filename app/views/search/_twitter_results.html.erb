@@ -1,4 +1,4 @@
-<h1>There <%= is_are(@response.count)%> <%= pluralize(@response.count, "user") %>
+<h1>Here <%= is_are(@response.count) %>
     with the user name <em>"<%= @query %>"</em>.</h1>
 
 <% @response.each do |user| %>
