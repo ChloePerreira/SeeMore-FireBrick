@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post '/search',                   to: 'search#index',                        as: :twitter_search
   get '/twitter/results',           to: 'search#index',                        as: :twitter_results
   post '/subscribe',                to: 'subscriptions#create',                as: :subscribe
+  get '/subscriptions/show',        to: 'subscriptions#index',                 as: :show_subscriptions  
+  delete 'subscription',            to: 'subscriptions#destroy',               as: :destroy_subscription 
+  get '/subscriptions/feed',        to: 'subscriptions#feed',                  as: :feed 
   get '/subscriptions/show',        to: 'subscriptions#index',                 as: :show_subscriptions
   delete 'subscription',            to: 'subscriptions#destroy',               as: :destroy_subscription
 
