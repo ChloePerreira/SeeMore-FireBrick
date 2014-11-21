@@ -20,4 +20,15 @@ class SubscriptionsController < ApplicationController
     redirect_to show_subscriptions_path
   end
 
+  def feed
+    @client = set_twitter_client
+    @tweets = []
+     #iterate over all the ids and spit out the tweets for each, then push then sort
+    @subscriptions = Subscription.where(user_id: session[:user_id])
+    @subscriptions.each do |s|
+      tweets = @client.user_timeline(s.local_id.to_i)
+      @tweets.push(tweets)
+    end
+    @tweets = @tweets.flatten.sort_by {|tweet| tweet.created_at}.reverse
+  end
 end

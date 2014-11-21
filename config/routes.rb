@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/subscribe',                to: 'subscriptions#create',                as: :subscribe
   get '/subscriptions/show',        to: 'subscriptions#index',                 as: :show_subscriptions  
   delete 'subscription',            to: 'subscriptions#destroy',               as: :destroy_subscription 
+  get '/subscriptions/feed',        to: 'subscriptions#feed',                  as: :feed 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,9 @@
+<% @tweets.each do |t| %>
+  <p> <img src= "<%= t.user.profile_image_url_https %>"></p>
+  <p><%= t.user.screen_name %></p>
+  <p><%= t.user.name %></p>
+  <p><%= t.text %></p>
+  <p><%= t.created_at %></p>
+  <hr>
+<% end %>
+
