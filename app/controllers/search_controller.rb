@@ -3,9 +3,11 @@ class SearchController < ApplicationController
   def index
     if @response = search_twitter_user
       results
+      render "_twitter_results"
     else
       @response = search_vimeo_user
       results
+      render "_vimeo_results"
     end
   end
 
@@ -14,6 +16,7 @@ class SearchController < ApplicationController
     @current_page = @provider_page
     @previous_page = @current_page - 1
     @next_page = @current_page + 1
+
   end
 
   def search_twitter_user
@@ -26,5 +29,8 @@ class SearchController < ApplicationController
 
     @query = params[:provider_search]
     set_twitter_client.user_search(@query, {page: @provider_page})
+  end
+
+  def search_vimeo_user
   end
 end
