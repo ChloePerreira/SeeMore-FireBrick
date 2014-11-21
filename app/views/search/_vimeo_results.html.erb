@@ -1,5 +1,10 @@
 <h1>Here is <%= @query %></h1>
 
-<% @response.each do |user|  %>
-  <%= user.name %>
+<% @results.each do |user|  %>
+  <% user_object = Vimeo::Simple::User.info(user.uid) %>
+
+  <p><img width="48px" src="<%= user_object["portrait_medium"] %>"</p>
+  <p><%= user_object["display_name"] %></p>
+  <p><%= user_object["location"] %></p>
+  <hr>
   <% end %>
