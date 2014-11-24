@@ -11,14 +11,6 @@
 
 
 
-
-
-
-
-
-
-
-
 <ul class="pagination">
   <li class="<%="disabled" if @current_page == 1%>">
     <%= link_to "Previous Page", vimeo_results_path({provider_search: @query, provider_page: @previous_page }) %>
@@ -27,3 +19,12 @@
     <%= link_to "Next Page", vimeo_results_path({provider_search: @query, provider_page: @next_page }) %>
   </li>
 </ul>
+
+<% @results.each do |user|  %>
+  <% user_object = Vimeo::Simple::User.info(user.uid) %>
+  <p><img width="48px" src="<%= user_object["portrait_medium"] %>"</p>
+  <h2><small><%= link_to "#{user_object["display_name"]}", "#{user_object["profile_url"]}" %></small></h2>
+  <p><%= user_object["location"] %></p>
+
+  <hr>
+  <% end %>
