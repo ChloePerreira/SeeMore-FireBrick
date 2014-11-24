@@ -14,6 +14,7 @@ class SearchController < ApplicationController
 
   def results
     @query = params[:provider_search] #paginate(page: params[:page], per_page: 15)
+    #@query = params[:provider_search].paginate(page: params[:page], per_page: 15)
     # @current_page = @provider_page
     # @previous_page = @current_page - 1
     # @next_page = @current_page + 1

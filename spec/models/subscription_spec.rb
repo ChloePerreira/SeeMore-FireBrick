@@ -18,9 +18,9 @@ describe Subscription do
       expect(Subscription.create(user_id: 7, media: "twitter", local_id: "307550006").valid?).to eq true
     end
 
-    it 'should not be able to subscribe to the same account twice' do
-      Subscription.create(user_id: 7, media: "twitter", local_id: "307550006")
-      expect(Subscription.create(user_id: 7, media: "twitter", local_id: "307550006").valid?).to eq false
+    it 'media value must be "twitter" or "vimeo"' do
+      expect(Subscription.create(user_id: 7, media: "facebook", local_id: "30453453").valid?).to eq false
+      expect(Subscription.create(user_id: 8, media: "vimeo", local_id: "3234234324").valid?).to eq true
     end
   end
 end
