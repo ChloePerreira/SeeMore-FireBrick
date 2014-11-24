@@ -6,7 +6,7 @@
     <% id = subscription.local_id.to_i %>
     <% user = @client.user(id) %>
     <p> <img src= "<%= user.profile_image_url_https %>"></p>
-    <p><%= user.screen_name %></p>
+    <p><%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></p>
     <p><% user.id %></p>
     <p><%= user.name %></p>
     <p><%= user.description %></p>
@@ -18,8 +18,5 @@
     <p><%= user["display_name"] %></p>
     <p><%= id %></p>
     <p><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %>
-  <% end %>
-  <hr>
+  <% end %>  
 <% end %>
-
-
