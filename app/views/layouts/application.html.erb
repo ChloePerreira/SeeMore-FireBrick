@@ -10,7 +10,8 @@
 <body>
   <div class="container">
   <%= link_to "Home", root_path %> |
-  <%= link_to "Feed", feed_path %>
+  <%= link_to "Feed", feed_path %> |
+  <%= link_to "Manage Subscriptions", show_subscriptions_path %>
     <%= flash[:notice] %>
     <%= yield %>
 
