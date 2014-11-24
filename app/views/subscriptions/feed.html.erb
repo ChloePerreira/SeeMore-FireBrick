@@ -5,7 +5,7 @@
 <% @all.each do |thing| %>
   <% if thing.inspect[0..8] == "#<Twitter" %>
     <p> <img src= "<%= thing.user.profile_image_url_https %>"></p>
-    <p><%= link_to "#{t.user.screen_name}", "https://twitter.com/intent/user?user_id=#{t.user.id}" %></p>
+    <p><%= link_to "#{thing.user.screen_name}", "https://twitter.com/intent/user?user_id=#{thing.user.id}" %></p>
     <p><%= thing.user.name %></p>
     <p><%= thing.text %></p>
     <p><%= thing.created_at %></p>
