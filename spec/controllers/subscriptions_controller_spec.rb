@@ -6,11 +6,17 @@ RSpec.describe SubscriptionsController, :type => :controller do
 
     context "with valid attributes" do
       it "should save into database" do
+        session[:user_id] = 8
         expect {
-          post :create, {subscription:{user_id: 8, media: "twitter", local_id: "207550006"}}
+          post :create, {user_id: 8, media: "twitter", local_id: "207550006"}
         }.to change {Subscription.count}.by(1)
         expect(Subscription.find_by user_id: 8).not_to eq nil
       end
+
+      # it 'should not be able to subscribe to the same account twice' do
+      #   Subscription.create(user_id: 7, media: "twitter", local_id: "307550006")
+      #   expect(Subscription.create(user_id: 7, media: "twitter", local_id: "307550006").valid?).to eq false
+      # end
     end
 
     context "with invalid attributes" do
