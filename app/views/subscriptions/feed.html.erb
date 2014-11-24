@@ -1,21 +1,19 @@
-<% if @tweets.size == 0 %>
+<% if @tweets.size == 0 || @videos.size == 0%>
   Search for users to grow your feed!
 <% end %>
 
-<% @tweets.each do |t| %>
-  <p> <img src= "<%= t.user.profile_image_url_https %>"></p>
-  <p><%= t.user.screen_name %></p>
-  <p><%= t.user.name %></p>
-  <p><%= t.text %></p>
-  <p><%= t.created_at %></p>
-  <hr>
-<% end %>
-
-<% if @videos != nil%>
-  <% @videos.each do |v| %>
-    <p><iframe src="//player.vimeo.com/video/<%=v['id']%>" width="500" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><p><%=v['title']%> from <%=v['user_name']%></p>
-    <p><%=v['upload_date']%></p>
-  <hr>
+<% @all.each do |thing| %>
+  <% if thing.inspect[0..8] == "#<Twitter" %>
+    <p> <img src= "<%= thing.user.profile_image_url_https %>"></p>
+    <p><%= thing.user.screen_name %></p>
+    <p><%= thing.user.name %></p>
+    <p><%= thing.text %></p>
+    <p><%= thing.created_at %></p>
+    <hr>
+  <% else %>
+    <p><iframe src="//player.vimeo.com/video/<%=thing['id']%>" width="500" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><p><%=thing['title']%> from <%=thing['user_name']%></p>
+    <p><%=thing['upload_date']%></p>
+    <hr>
   <% end %>
 <% end %>
 
