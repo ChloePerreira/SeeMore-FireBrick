@@ -11,3 +11,12 @@
   <hr>
 <% end %>
 
+<% if @videos != nil%>
+  <% @videos.each do |v| %>
+    <p><iframe src="//player.vimeo.com/video/<%=v['id']%>" width="500" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><p><%=v['title']%> from <%=v['user_name']%></p>
+    <p><%=v['upload_date']%></p>
+  <hr>
+  <% end %>
+<% end %>
+
+
