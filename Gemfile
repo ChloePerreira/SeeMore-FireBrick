@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'beemo'
 gem 'rails_12factor', group: :production
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
