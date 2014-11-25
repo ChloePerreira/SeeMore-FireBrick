@@ -4,6 +4,7 @@
   <div class="row" id="center-form">
       <div class="col-md-5">
         <form class="form-inline" >
+        <% if current_user %>
           <%= form_tag twitter_results_path, method: :get do %>
           Twitter <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
           <%= hidden_field_tag :provider, "twitter" %>
@@ -18,9 +19,10 @@
             <%= hidden_field_tag :provider, "vimeo" %>
             <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
           <% end %>
-        </div>
-      </form>
-    </div>
+        <% end %>
+      </div>
+    </form>
   </div>
+</div>
 </body>
 </html>

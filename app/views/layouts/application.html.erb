@@ -7,15 +7,15 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body>
+  <title>Aggre-Gator</title>
   <div class="container-fluid">
-    <div class="fullpage-div">
       <ul class="nav nav-pills">
         <li><%= link_to "Home", root_path %></li>
+        <% if current_user %>
         <li><%= link_to "Feed", feed_path %></li>
         <li><%= link_to "Manage Subscriptions", show_subscriptions_path %></li>
-      </ul>
+        <% end %>
 
 
       <% if session[:user_id] %>
@@ -38,9 +38,9 @@
       <% end %>
 
 
-
           <%= flash[:notice] %>
           <%= yield %>
+          </ul>
         </div>
       </div>
     </div>
