@@ -8,8 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <title>Aggre-Gator</title>
-  <div class="container-fluid">
+<title>Aggre-Gator</title>
+  <div class="masthead">
+    <img src="http://placekitten.com/g/1400/300"/>
+  </div>
+    <div class="container-fluid">
       <ul class="nav nav-pills">
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
@@ -39,6 +42,7 @@
           <%= flash[:notice] %>
           <%= yield %>
           </ul>
+        </div>
         </div>
       </div>
     </div>
