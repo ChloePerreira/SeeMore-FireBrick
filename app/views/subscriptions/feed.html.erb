@@ -1,7 +1,7 @@
 <h1>Your Aggre-gator Feed</h1>
 
 <% if @all.size == 0%>
-  Search for users to grow your feed!
+  Feed Your Aggregator! <%= link_to "Search for users", root_path %> to grow your feed.
 <% end %>
 
 <div class="container">
@@ -9,12 +9,12 @@
   <% if thing.inspect[0..8] == "#<Twitter" %>
     <div class="row">
 
-      <div class="col-lg-2 col-md-2 col-xs-2">
+      <div class="col-lg-1 col-md-1 col-s-1 col-xs-2">
         <div><img src= "<%= thing.user.profile_image_url_https %>"></div>
       </div>
-      <div class="col-lg-10 col-md-10 col-xs-10">
-        <div><%= thing.user.name %> <%= link_to "#{thing.user.screen_name}", "https://twitter.com/intent/user?user_id=#{thing.user.id}" %></div>
-        <div><%= auto_link(thing.text).html_safe %></div>
+      <div class="col-lg-11 col-md-11 col-s-11 col-xs-10">
+        <div class="full-name"><%= link_to "#{thing.user.name}", "https://twitter.com/intent/user?user_id=#{thing.user.id}" %> <span class="user_name">@<%= thing.user.screen_name %></span></div>
+        <div class="twitter-text"><%= auto_link(thing.text).html_safe %></div>
         <div><%= thing.created_at.strftime("Posted on %c") %></div>
       </div>
 
