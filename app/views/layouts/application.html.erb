@@ -17,7 +17,7 @@
         <li><%= link_to "Manage Subscriptions", show_subscriptions_path %></li>
         <% end %>
 
-
+    <div id="signin" class="row">
       <% if session[:user_id] %>
           Welcome, <%= User.find(session[:user_id]).name %>!&nbsp;
         <%= link_to "Sign out", destroy_session_path, method: :delete %>
@@ -28,7 +28,6 @@
       <% if Provider.find_by(user_id: session[:user_id], name: "vimeo")==nil %>
         <%= link_to "Connect via Vimeo", "/auth/vimeo" %>
       <% end %>
-
       <% else%>
         <a href="/auth/twitter" title="Twitter"><img alt="Twitter" width="75px" src="/assets/twitter-256-black.png"></a>
           <!-- <%= link_to "Sign in with Twitter", "/auth/twitter" %> -->
@@ -36,8 +35,7 @@
             <img alt="Vimeo" width="75px"  src="/assets/vimeo-256-black.png"></a>
             <!-- <%= link_to "Sign in with Vimeo", "/auth/vimeo" %> -->
       <% end %>
-
-
+    </div>
           <%= flash[:notice] %>
           <%= yield %>
           </ul>
