@@ -10,7 +10,7 @@
 <body>
 <title>Aggre-Gator</title>
   <div class="masthead">
-    <img src="http://placekitten.com/g/1400/300"/>
+    <img src="http://placekitten.com/1400/300"/>
   </div>
     <div class="container-fluid">
       <ul class="nav nav-pills">
@@ -20,7 +20,7 @@
         <li><%= link_to "Manage Subscriptions", show_subscriptions_path %></li>
         <% end %>
 
-    <div id="signin" class="row">
+    <div id="signin" class="row" class="col-lg-12">
       <% if session[:user_id] %>
           Welcome, <%= User.find(session[:user_id]).name %>!&nbsp;
         <%= link_to "Sign out", destroy_session_path, method: :delete %>
@@ -38,8 +38,10 @@
             <img alt="Vimeo" width="75px"  src="/assets/vimeo-256-black.png"></a>
             <!-- <%= link_to "Sign in with Vimeo", "/auth/vimeo" %> -->
       <% end %>
+      <div id="flash-notice">
+        <%= flash[:notice] %>
+      </div>
     </div>
-          <%= flash[:notice] %>
           <%= yield %>
           </ul>
         </div>
