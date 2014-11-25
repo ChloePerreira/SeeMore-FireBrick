@@ -49,6 +49,8 @@ gem 'omniauth-vimeo'
 gem 'twitter'
 gem 'vimeo'
 
+gem 'twitter-text', '~> 1.10.0'
+
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'httparty'

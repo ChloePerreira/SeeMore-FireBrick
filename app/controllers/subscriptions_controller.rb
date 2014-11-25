@@ -2,6 +2,9 @@ class SubscriptionsController < ApplicationController
 
   #showing a user https://api.twitter.com/1.1/users/show.json?screen_name=crystaloptera
   #showing a user's tweets https://api.twitter.com/1.1/statuses/user_timeline.json?count=200&user_id=2788167642
+  include Twitter::Autolink
+
+  #html = auto_link("")
 
   def create
     @subscription = Subscription.new(media: params[:media], user_id: session[:user_id], local_id: params[:local_id])
@@ -33,8 +36,8 @@ class SubscriptionsController < ApplicationController
       elsif s.media == "vimeo"
           videos = Vimeo::Simple::User.all_videos(s.local_id.to_i)
           @videos.push(videos.flatten)
-        end
       end
+    end
     @tweets = @tweets.flatten.sort_by {|tweet| tweet.created_at}.reverse
     if @videos != nil
       @videos = @videos.flatten.sort_by {|video| video["upload_date"]}.reverse
@@ -55,5 +58,5 @@ class SubscriptionsController < ApplicationController
     s + twitter + vimeo
  end
 
-  
+
 end

@@ -8,6 +8,12 @@
     <p><%= link_to "#{thing.user.screen_name}", "https://twitter.com/intent/user?user_id=#{thing.user.id}" %></p>
     <p><%= thing.user.name %></p>
     <p><%= thing.text %></p>
+    <% if thing.user.status.urls? %>
+      <%= thing.text[thing.user.status.urls[0].indices[0]] %>
+      <a href="<%=thing.user.status.urls[0].expanded_url.to_s %>">test</a>
+      <p><%= link_to "#{thing.user.status.urls[0].expanded_url}", thing.user.status.urls[0].expanded_url.to_s %></p>
+    <% end %>
+    <!--<p><%#= auto_link(thing.text).html_safe %></p>-->
     <p><%= thing.created_at %></p>
     <hr>
   <% else %>
