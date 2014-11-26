@@ -20,6 +20,9 @@
       </div>
       <div class="col-lg-11 col-md-11 col-s-11 col-xs-10">
         <div class="full-name"><%= link_to "#{thing.user.name}", "https://twitter.com/intent/user?user_id=#{thing.user.id}" %> <span class="user_name">@<%= thing.user.screen_name %></span></div>
+        <% if thing.media[0] %>
+          <div class="responsive-container"><img src="<%= thing.media[0].media_url.to_s %>"></div>
+        <% end %>
         <div class="twitter-text"><%= auto_link(thing.text).html_safe %></div>
         <div class="time-posted"><%= thing.created_at.strftime("Posted on %c") %></div>
       </div>
