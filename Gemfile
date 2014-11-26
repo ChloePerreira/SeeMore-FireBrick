@@ -37,7 +37,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'kaminari'
+gem 'will_paginate', '~> 3.0.5'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
@@ -48,6 +49,7 @@ gem 'omniauth-vimeo'
 gem 'twitter'
 gem 'vimeo'
 
+gem 'twitter-text', '~> 1.10.0'
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'httparty'
