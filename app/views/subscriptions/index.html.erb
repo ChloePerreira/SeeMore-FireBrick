@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12 col-s-12">
-      <h1>Manage Subscriptions</h1>
+      <h1>Subscriptions</h1>
     </div>
   </div>
 </div>
@@ -10,6 +10,7 @@
   Search for users to grow your feed!
 <% end %>
 
+<div class="container">
 <% @subscriptions.each do |subscription| %>
   <% if subscription.media == "twitter" %>
     <% id = subscription.local_id.to_i %>
@@ -20,11 +21,13 @@
     <p><%= user.name %></p>
     <p><%= user.description %></p>
     <p><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %>
+      <hr>
   <% elsif subscription.media == "vimeo" %>
     <% id = subscription.local_id.to_i %>
     <% user = Vimeo::Simple::User.info(id) %>
     <p><img width="48px" src="<%= user["portrait_medium"] %>"</p>
-    <p><%= user["display_name"] %></p>
+    <p><div><%= link_to "#{user["display_name"]}", "#{user['user_url']}" %></span></div></p>
     <p><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %>
+      <hr>
   <% end %>
 <% end %>
