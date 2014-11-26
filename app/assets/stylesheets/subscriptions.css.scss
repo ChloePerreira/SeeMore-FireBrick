@@ -55,7 +55,36 @@
   color: #ffb20c
 }
 
+.twitter-pic img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .vimeo-pic img {
   width: 48px;
   height: 48px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vimeo-icon img {
+  width: 48px;
+  height: 48px;
+  opacity: .15;
+  padding-top: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.twitter-icon img {
+  width: 48px;
+  height: 48px;
+  opacity: .15;
+  padding-top: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
