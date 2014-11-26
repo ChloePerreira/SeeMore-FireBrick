@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <div class="container">
-
-    <div class="row">
-      <% if session[:user_id] %>
-        Welcome, <%= User.find(session[:user_id]).name %>!&nbsp;
-        <%= link_to "Sign out", destroy_session_path, method: :delete %>
-        <% if Provider.find_by(user_id: session[:user_id], name: "twitter")==nil %>
-          <%= link_to "Connect via Twitter", "/auth/twitter" %>
+  <div class="row" id="form-inline">
+    <div class="col-md-6">
+      <div class="form-inline" role="form">
+        <% if current_user %>
+          <%= form_tag twitter_results_path, method: :get do %>
+          Twitter <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
+          <%= hidden_field_tag :provider, "twitter" %>
+          <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
+          <% end %>
         <% end %>
-        <% if Provider.find_by(user_id: session[:user_id], name: "vimeo")==nil %>
-          <%= link_to "Connect via Vimeo", "/auth/vimeo" %>
-        <% end %>
-      <% else%>
-        <%= link_to "Sign in with Twitter", "/auth/twitter" %>
-        <%= link_to "Sign in with Vimeo", "/auth/vimeo" %>
-      <% end %>
+      </div>
     </div>
 
-    <div class="form-inline">
-      <div class="form-group">
-    <%= form_tag twitter_results_path, method: :get do %>
-      Twitter <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
-      <%= hidden_field_tag :provider, "twitter" %>
-      <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
-    <% end %>
-
-    <div class="form-inline">
-    <%= form_tag vimeo_results_path, method: :get do %>
-      Vimeo <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
-      <%= hidden_field_tag :provider, "vimeo" %>
-      <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
-    <% end %>
-  </div>
+    <div class="col-md-6">
+      <div class="form-inline" role="form">
+        <% if current_user %>
+          <%= form_tag vimeo_results_path, method: :get do %>
+          Vimeo <%= text_field_tag :provider_search, params[:provider_search], :placeholder => "Search", class:"form-control" %>
+          <%= hidden_field_tag :provider, "vimeo" %>
+          <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
+          <% end %>
+        <% end %>
+      </div>
 </body>
 </html>
