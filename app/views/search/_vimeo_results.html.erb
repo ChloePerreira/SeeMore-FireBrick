@@ -1,10 +1,14 @@
 <h1>Here are the top results for <em>"<%= @query %>"</em></h1>
 
+
 <% @results.each do |user|  %>
   <% user_object = Vimeo::Simple::User.info(user.uid) %>
 
   <h2><small><%= link_to "#{user_object["display_name"]}", "#{user_object["profile_url"]}" %></small></h2>
   <p><img width="80px" src="<%= user_object["portrait_medium"] %>"</p>
   <p><%= user_object["location"] %></p>
-  <hr>
+  <% if !Subscription.find_by(user_id: session[:user_id], local_id: user_object["id"].to_s) %>
+  <p><%= button_to "Subscribe", subscribe_path({media: "vimeo", local_id: user_object["id"], provider_search: @query, provider_page: @current_page}), class: "btn btn-default subscribe" %>
   <% end %>
+  <hr>
+<% end %>
