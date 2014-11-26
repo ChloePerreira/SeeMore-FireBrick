@@ -1,5 +1,5 @@
+<div class="centered-content">
 <h1>Here are the top results for <em>"<%= @query %>"</em></h1>
-
 
 <% @results.each do |user|  %>
   <% user_object = Vimeo::Simple::User.info(user.uid) %>
@@ -12,3 +12,4 @@
   <% end %>
   <hr>
 <% end %>
+</div>

@@ -17,7 +17,6 @@ class SearchController < ApplicationController
     # @current_page = @provider_page
     # @previous_page = @current_page - 1
     # @next_page = @current_page + 1
-
   end
 
   def search_twitter_user

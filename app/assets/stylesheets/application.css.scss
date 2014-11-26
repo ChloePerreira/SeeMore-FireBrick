@@ -52,8 +52,16 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-family: 'Crushed', cursive;
+  color: #046c07
+}
+
 .masthead {
-  //  width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+}
+
+.centered-content {
+   width: 50%;
+    margin: 0 auto;
 }

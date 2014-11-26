@@ -1,6 +1,7 @@
 <h1>Here <%= is_are(@response.count) %>
     with the user name <em>"<%= @query %>"</em>.</h1>
 
+<div class="centered-content">
 <% @response.each do |user| %>
   <h2><small><%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></small></h2>
   <p> <img src= "<%= user.profile_image_url_https %>"></p>
@@ -12,7 +13,7 @@
   <% end %>
   <hr>
 <% end %>
-
+</div>
 
 
 <ul class="pagination">
