@@ -25,7 +25,6 @@
     <% user = Vimeo::Simple::User.info(id) %>
     <p><img width="48px" src="<%= user["portrait_medium"] %>"</p>
     <p><%= user["display_name"] %></p>
-    <p><%= id %></p>
     <p><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %>
   <% end %>
 <% end %>
