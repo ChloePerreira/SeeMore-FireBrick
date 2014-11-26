@@ -46,7 +46,22 @@
 }
 
 h1 {
+  font-family: 'Crushed', cursive;
   margin-top: 2em;
   margin-bottom: 2em;
   text-align: center;
+}
+
+h2 {
+  font-family: 'Crushed', cursive;
+  color: #046c07
+}
+
+.masthead {
+  margin: 0 auto;
+}
+
+.centered-content {
+   width: 50%;
+    margin: 0 auto;
 }
