@@ -34,7 +34,7 @@
       <div class="col-lg-12">
         <div class="responsive-container"><iframe src="//player.vimeo.com/video/<%=thing['id']%>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><p><%=thing['title']%> from <%=thing['user_name']%></div>
         <div><%= thing['title'] %> by <span class="full-name"><%= link_to "#{thing['user_name']}", "#{thing['user_url']}" %></span></div>
-        <div class="time-posted"><%=DateTime.parse(thing['upload_date']).strftime("Posted on %c")%></div>
+        <div class="time-posted">Posted on <%=link_to DateTime.parse(thing['upload_date']).strftime("%c"), "https://vimeo.com/#{thing['id']}"%></div>
       </div>
     </div>
     <hr>
