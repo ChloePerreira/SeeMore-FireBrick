@@ -2,8 +2,9 @@ class SearchController < ApplicationController
 
   def index
     if params[:provider] == "twitter"
-      @response = search_twitter_user
-      results
+      #@response = search_twitter_user
+      search_twitter_user
+      #results
     elsif params[:provider] == "vimeo"
       @response = search_vimeo_user
       results
@@ -21,7 +22,7 @@ class SearchController < ApplicationController
 
   def search_twitter_user
     if params[:provider_search] == ""
-      #flash[:notice] = "Please enter a query"
+      flash[:notice] = "Please enter a query"
       redirect_to root_path, notice: "Please enter a search query"
     else
       set_twitter_client
@@ -30,7 +31,7 @@ class SearchController < ApplicationController
         @provider_page = 1
       end
       @query = params[:provider_search]
-      set_twitter_client.user_search(@query, {page: @provider_page}) 
+      @response = set_twitter_client.user_search(@query, {page: @provider_page}) 
       render "_twitter_results"
     end
   end
