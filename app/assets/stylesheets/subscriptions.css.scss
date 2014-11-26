@@ -17,3 +17,31 @@
   width: 100%;
   height: 100%;
 }
+
+.user_name {
+  color: #787c71;
+}
+
+.twitter-text a {
+  color: #05ad2f;
+}
+
+.twitter-text a:hover {
+  text-decoration: none;
+  color: #ffb20c
+}
+
+.full-name a {
+  color: #05ad2f;
+}
+
+.full-name a:hover {
+  text-decoration: none;
+  color: #ffb20c
+}
+
+.time-posted {
+  padding-top: 1em;
+  color: #787c71;
+  font-size: 85%;
+}

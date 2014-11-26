@@ -23,6 +23,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def feed
+    @user = User.find(session[:user_id])
     @client = set_twitter_client
     @tweets = []
     @videos = []
@@ -57,5 +58,5 @@ class SubscriptionsController < ApplicationController
     s + twitter + vimeo
  end
 
-  
+
 end
