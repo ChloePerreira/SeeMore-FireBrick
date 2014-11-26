@@ -24,7 +24,7 @@
           <div class="responsive-container"><img src="<%= thing.media[0].media_url.to_s %>"></div>
         <% end %>
         <div class="twitter-text"><%= auto_link(thing.text).html_safe %></div>
-        <div class="time-posted"><%= thing.created_at.strftime("Posted on %c") %></div>
+        <div class="time-posted">Posted on <%=link_to thing.created_at.strftime("%c"), "https://twitter.com/#{thing.user.screen_name}/status/#{thing.id}" %></div>
       </div>
 
     </div>
