@@ -4,8 +4,10 @@ class SubscriptionsController < ApplicationController
   #showing a user's tweets https://api.twitter.com/1.1/statuses/user_timeline.json?count=200&user_id=2788167642
 
   def create
-    @subscription = Subscription.new(media: params[:media], user_id: session[:user_id], local_id: params[:local_id])
-    @subscription.save
+    if Subscription.where(user_id: session[:user_id], local_id: params[:local_id]).empty?
+      @subscription = Subscription.new(media: params[:media], user_id: session[:user_id], local_id: params[:local_id])
+      @subscription.save
+    end
     redirect_to twitter_results_path(provider_search: params[:provider_search], provider: params[:media], provider_page: params[:provider_page])
   end
 
