@@ -12,10 +12,11 @@
   <div class="masthead">
     <img src="assets/ga"/>
   </div>
+
     <div class="container-fluid">
       <ul class="nav nav-pills">
-        <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
+        <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Feed", feed_path %></li>
         <li><%= link_to "Manage Subscriptions", show_subscriptions_path %></li>
         <% end %>
@@ -32,21 +33,20 @@
         <%= link_to "Connect via Vimeo", "/auth/vimeo" %>
       <% end %>
       <% else%>
+      </ul>
+    </div>
+
+    <div id="provider-icons">
         <a href="/auth/twitter" title="Twitter"><img alt="Twitter" width="75px" src="/assets/twitter-256-black.png"></a>
-          <!-- <%= link_to "Sign in with Twitter", "/auth/twitter" %> -->
-          <a href="/auth/vimeo" title="Vimeo">
-            <img alt="Vimeo" width="75px"  src="/assets/vimeo-256-black.png"></a>
-            <!-- <%= link_to "Sign in with Vimeo", "/auth/vimeo" %> -->
-      <% end %>
+        <a href="/auth/vimeo" title="Vimeo"><img alt="Vimeo" width="75px"  src="/assets/vimeo-256-black.png"></a>
+        <% end %>
       <div id="flash-notice">
         <%= flash[:notice] %>
       </div>
     </div>
+
           <%= yield %>
-          </ul>
-        </div>
-        </div>
-      </div>
+
     </div>
   </body>
 </html>
