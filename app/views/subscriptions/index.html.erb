@@ -1,6 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-s-12">
+      <h1>Manage Subscriptions</h1>
+    </div>
+  </div>
+</div>
+
 <% if @subscriptions.size == 0 %>
   Search for users to grow your feed!
 <% end %>
+
 <% @subscriptions.each do |subscription| %>
   <% if subscription.media == "twitter" %>
     <% id = subscription.local_id.to_i %>
@@ -18,5 +27,5 @@
     <p><%= user["display_name"] %></p>
     <p><%= id %></p>
     <p><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %>
-  <% end %>  
+  <% end %>
 <% end %>
