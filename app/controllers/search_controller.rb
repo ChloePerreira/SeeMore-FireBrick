@@ -17,6 +17,7 @@ class SearchController < ApplicationController
     # @current_page = @provider_page
     # @previous_page = @current_page - 1
     # @next_page = @current_page + 1
+
   end
 
   def search_twitter_user
@@ -30,7 +31,7 @@ class SearchController < ApplicationController
         @provider_page = 1
       end
       @query = params[:provider_search]
-      @response = set_twitter_client.user_search(@query, {page: @provider_page}) 
+      @response = set_twitter_client.user_search(@query, {page: @provider_page})
       render "_twitter_results"
     end
   end
