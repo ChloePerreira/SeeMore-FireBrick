@@ -11,7 +11,7 @@
 <body>
 <title>Aggre-Gator</title>
     <div class="masthead" class="gator">
-      <img src="assets/gatorOpenMouth.jpg"/>
+      <%= image_tag ("gatorOpenMouth.jpg") %>
     </div><!-- end of gator -->
 
 
@@ -39,8 +39,8 @@
     </div>
 
     <div id="provider-icons">
-        <a href="/auth/twitter" title="Twitter"><img alt="Twitter" width="75px" src="/assets/twitter-256-black.png"></a>
-        <a href="/auth/vimeo" title="Vimeo"><img alt="Vimeo" width="75px"  src="/assets/vimeo-256-black.png"></a>
+        <a href="/auth/twitter" title="Twitter"><%= image_tag("twitter-256-black.png", size: "75px", alt: "twitter")%></a>
+        <a href="/auth/vimeo" title="Vimeo"><%= image_tag("vimeo-256-black.png", size: "75px", alt: "Vimeo")%></a>
         <% end %>
       <div id="flash-notice">
         <%= flash[:notice] %>
