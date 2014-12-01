@@ -38,9 +38,10 @@
       </ul>
     </div>
 
-    <div id="provider-icons">
-        <a href="/auth/twitter" title="Twitter"><%= image_tag("twitter-256-black.png", size: "75px", alt: "twitter")%></a>
-        <a href="/auth/vimeo" title="Vimeo"><%= image_tag("vimeo-256-black.png", size: "75px", alt: "Vimeo")%></a>
+    <h1 id="front-pg-header">Sign-up!</h1>
+    <div id="center-socialmed">
+        <a href="/auth/twitter" title="Twitter" id="provider-icons"><%= image_tag("twitter-256-black.png", size: "75px", alt: "twitter")%></a>
+        <a href="/auth/vimeo" title="Vimeo" id="provider-icons"><%= image_tag("vimeo-256-black.png", size: "75px", alt: "Vimeo")%></a>
         <% end %>
       <div id="flash-notice">
         <%= flash[:notice] %>
