@@ -11,9 +11,6 @@
 </head>
 <body>
 <title>Aggre-Gator</title>
-    <div class="masthead" class="gator">
-      <%= image_tag ("gatorOpenMouth.jpg") %>
-    </div><!-- end of gator -->
 
 
     <div class="container-fluid">
@@ -24,20 +21,20 @@
         <li><%= link_to "Manage Subscriptions", show_subscriptions_path %></li>
         <% end %>
 
-    <div id="signin" class="row" class="col-lg-12">
-      <% if session[:user_id] %>
+        <div id="signin" class="row" class="col-lg-12">
+          <% if session[:user_id] %>
           Welcome, <%= User.find(session[:user_id]).name %>!&nbsp;
-        <%= link_to "Sign out", destroy_session_path, method: :delete %>
-        <% if Provider.find_by(user_id: session[:user_id], name: "twitter")==nil %>
-        <%= link_to "Connect via Twitter", "/auth/twitter" %>
-      <% end %>
+          <%= link_to "Sign out", destroy_session_path, method: :delete %>
+          <% if Provider.find_by(user_id: session[:user_id], name: "twitter")==nil %>
+          <%= link_to "Connect via Twitter", "/auth/twitter" %>
+          <% end %>
 
-      <% if Provider.find_by(user_id: session[:user_id], name: "vimeo")==nil %>
-        <%= link_to "Connect via Vimeo", "/auth/vimeo" %>
-      <% end %>
-      <% else%>
-      </ul>
-    </div>
+          <% if Provider.find_by(user_id: session[:user_id], name: "vimeo")==nil %>
+          <%= link_to "Connect via Vimeo", "/auth/vimeo" %>
+          <% end %>
+          <% else%>
+        </ul>
+      </div>
 
     <h1 id="front-pg-header">Sign-up!</h1>
     <div id="center-socialmed">
@@ -48,6 +45,9 @@
         <%= flash[:notice] %>
       </div>
     </div>
+    <div class="masthead" class="gator">
+      <%= image_tag ("gatorOpenMouth.jpg") %>
+    </div><!-- end of gator -->
 
           <%= yield %>
 

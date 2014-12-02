@@ -24,6 +24,9 @@ a:hover{
   color: #1A7C33;
 }
 
+nav {
+  padding-bottom: 1000px;
+}
 
 .disabled {
   pointer-events: none;
@@ -149,8 +152,19 @@ h2 {
   padding-bottom: 20px;
 }
 
+.masthead {
+  width: 800px;
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
+  top: 60%;
+  bottom: 70%;
+}
 .masthead img {
   width: 100%;
+  height: 100%;
+
+  margin-bottom: 10px;
 }
 
 .btn {
