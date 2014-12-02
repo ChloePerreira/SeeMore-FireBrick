@@ -16,6 +16,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+a {
+  color: black;
+}
+
+a:hover{
+  color: #1A7C33;
+}
+
 
 .disabled {
   pointer-events: none;
@@ -54,17 +62,18 @@ h1 {
 
 h2 {
   font-family: 'Crushed', cursive;
-  color: #046c07
+  color: #1A7C33
 }
 
-.masthead {
-  margin: 0 auto;
-}
-
-.centered-content {
+.centeredContent {
   // width: 50%;
   text-align: center;
   margin: 0 auto;
+}
+
+.masthead img {
+
+
 }
 
 .profileCard {
