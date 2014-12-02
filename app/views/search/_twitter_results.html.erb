@@ -1,45 +1,49 @@
 <div class="profile centered-content">
-<h1>Here <%= is_are(@response.count) %>
+  <h1>Here <%= is_are(@response.count) %>
     with the user name <em>"<%= @query %>"</em>.</h1>
 
-<% @response.each do |user| %>
-<div class="profileCard">
-  <div class="profileBg">
-    <img src="<%= user.profile_background_image_url %>">
-  </div><!-- end profileBackground -->
+  <% @response.each do |user| %>
+  <div class="profileCard">
+    <div class="profileImages">
+      <div class="profileBg" id="userBg<%= user.id %>">
 
-  <div class="profileContent">
-    <div class="profilePic">
-      <p><img src= "<%= user.profile_image_url_https %>"></p>
-    </div><!-- end of profilePic -->
+        <div class="profilePic">
+          <img src= "<%= user.profile_image_url_https %>">
+        </div><!-- end of profilePic -->
+      </div><!-- end profileBackground -->
 
-    <div class="profileNames">
-      <h2><small><p><%= user.name %></p></small></h2>
-      @<%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %>
-    </div><!-- end of profileNames -->
+        <script>
+          $("#userBg<%= user.id %>").css("background-image", "url(<%= user.profile_background_image_url %>)")
+        </script>
 
-    <div class="profileStats">
-      <ul class="profileStatList">
-        <li class="description">
-          "<%= user.description %>"
-        </li><!-- description -->
+    </div><!-- end of profileImages -->
 
-        <li class="followers">
-          Followers<%= user.followers_count %>
-        </li><!-- end of followers -->
+    <div class="profileContent">
+      <div class="profileNames">
+        <h2><small><p><%= user.name %></p></small></h2>
+        @<%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %>
+      </div><!-- end of profileNames -->
 
-      </ul><!-- end of statList -->
-    </div><!-- end of profileStats -->
-  </div><!-- end of profileContent -->
-  <p><% user.id %></p>
-</div> <!-- end profileCard -->
+      <div class="profileStats">
+          <p class="description">
+            "<%= user.description %>"
+          </p><!-- description -->
+
+          <p class="followers">
+            Followers <%= user.followers_count %>
+          </p><!-- end of followers -->
+
+      </div><!-- end of profileStats -->
+    </div><!-- end of profileContent -->
+    <p><% user.id %></p>
+  </div> <!-- end profileCard -->
 
 <!-- subscribe button:  -->
-  <% if !Subscription.find_by(user_id: session[:user_id], local_id: user.id.to_s) %>
-  <p><%= button_to "Subscribe", subscribe_path({media: "twitter", local_id: user.id, provider_search: @query, provider_page: @current_page}), class: "btn btn-default subscribe" %>
+    <% if !Subscription.find_by(user_id: session[:user_id], local_id: user.id.to_s) %>
+    <p><%= button_to "Subscribe", subscribe_path({media: "twitter", local_id: user.id, provider_search: @query, provider_page: @current_page}), class: "btn btn-default subscribe" %>
+    <% end %>
+    <hr>
   <% end %>
-  <hr>
-<% end %>
 </div><!-- end of centered content -->
 
 
