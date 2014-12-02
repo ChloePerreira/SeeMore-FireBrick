@@ -82,3 +82,17 @@ h2 {
    width: 50%;
   margin: 0 auto;
 }
+
+.btn {
+  color: #ffffff;
+  background-color: #05ad2f;
+  border: none;
+}
+
+.btn:hover {
+  color: #05ad2f;
+  background-color: #ffffff;
+  border: 1px solid #05ad2f;
+  height: 60;
+  width: 170;
+}
