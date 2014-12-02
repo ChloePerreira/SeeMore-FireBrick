@@ -21,9 +21,9 @@
         <div id="twitter-icon-sub"><%= image_tag "twitter-256-black.png"%></div>
       </div>
       <div class="col-lg-8 col-md-8 col-s-8 col-xs-6">
-        <div class="full-name"><%= link_to "#{user.name}", "https://twitter.com/intent/user?user_id=#{user.id}" %>&nbsp;<span class="user_name">@<%= user.screen_name %></span></div>
+        <div class="full-name"><%= link_to "#{user.name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></div>
+        <div class="user_name">@<%= user.screen_name %></div>
         <div><% user.id %></div>
-        <div><%= user.description %></div>
       </div>
       <div class="col-lg-3 col-md-3 col-s-3 col-xs-4">
         <div><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %></div>
@@ -40,7 +40,6 @@
       </div>
       <div class="col-lg-8 col-md-8 col-s-8 col-xs-6">
         <div class="full-name"><%= link_to "#{user["display_name"]}", "#{user['user_url']}" %></span></div>
-        <div><%= user["bio"] %></div>
       </div>
       <div class="col-lg-3 col-md-3 col-s-3 col-xs-4">
         <div><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %></div>
