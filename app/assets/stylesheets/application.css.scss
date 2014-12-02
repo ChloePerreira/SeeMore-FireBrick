@@ -31,6 +31,18 @@ a:hover{
   color: #444;
 }
 
+#front-pg-header {
+  font-family: 'Crushed', cursive;
+  font-size:65px;
+  margin-top:100px;
+  margin-bottom:5px;
+
+}
+
+#center-socialmed {
+  text-align: center;
+}
+
 #signup_icons {
   width: 150px;
 }
@@ -46,11 +58,12 @@ a:hover{
   margin-right:15px;
 }
 
-#provider-icons {
-  width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+#provider-icons img{
+  display:inline-block;
+  width:100px;
+  margin:8px;
+  border-radius: 15px;
+  background-color:#1A7C33;
 }
 
 h1 {
@@ -71,10 +84,6 @@ h2 {
   margin: 0 auto;
 }
 
-.masthead img {
-
-
-}
 
 .profileCard {
   border-radius: 6px;
@@ -87,9 +96,11 @@ h2 {
   margin: 0 auto;
 }
 
+
 .profileContent {
   display: block;
   line-height: 16px;
+  padding-left: 10px;
 }
 
 .profilePic img {
@@ -118,7 +129,7 @@ h2 {
   padding: 0 1px;
   margin-left: -1px;
   margin-top: -1px;
-  display: block; //try block?
+  display: block;
   position: relative;
   z-index: 1;
 }
@@ -138,6 +149,21 @@ h2 {
   padding-bottom: 20px;
 }
 
-.profileContent {
-  padding-left: 10px;
+.masthead img {
+  width: 100%;
+}
+
+.btn {
+  color: #ffffff;
+  background-color: #1A7C33;
+  border: none;
+}
+
+.btn:hover {
+  color: #1A7C33;
+  background-color: #ffffff;
+  border: 1px solid #1A7C33;
+  height: 60;
+  width: 170;
+
 }

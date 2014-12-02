@@ -5,13 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href="/favicon.ico" />
   <link href='http://fonts.googleapis.com/css?family=Crushed' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <title>Aggre-Gator</title>
-    <div class="masthead" class="gator" class="centeredContent">
-      <img src="assets/gatorOpenMouth.jpg"/>
+    <div class="masthead" class="gator">
+      <%= image_tag ("gatorOpenMouth.jpg") %>
     </div><!-- end of gator -->
 
 
@@ -38,9 +39,10 @@
       </ul>
     </div>
 
-    <div id="provider-icons">
-        <a href="/auth/twitter" title="Twitter"><img alt="Twitter" width="75px" src="/assets/twitter-256-black.png"></a>
-        <a href="/auth/vimeo" title="Vimeo"><img alt="Vimeo" width="75px"  src="/assets/vimeo-256-black.png"></a>
+    <h1 id="front-pg-header">Sign-up!</h1>
+    <div id="center-socialmed">
+        <a href="/auth/twitter" title="Twitter" id="provider-icons"><%= image_tag("twitter-256-black.png", size: "75px", alt: "twitter")%></a>
+        <a href="/auth/vimeo" title="Vimeo" id="provider-icons"><%= image_tag("vimeo-256-black.png", size: "75px", alt: "Vimeo")%></a>
         <% end %>
       <div id="flash-notice">
         <%= flash[:notice] %>
