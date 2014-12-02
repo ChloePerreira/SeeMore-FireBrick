@@ -7,7 +7,7 @@
 </div>
 
 <% if @subscriptions.size == 0 %>
-  Search for users to grow your feed!
+  Feed Your Aggregator! <%= link_to "Search for users", root_path %> to grow your feed.
 <% end %>
 
 <div class="container">
@@ -15,23 +15,38 @@
   <% if subscription.media == "twitter" %>
     <% id = subscription.local_id.to_i %>
     <% user = @client.user(id) %>
-    <p> <img src= "<%= user.profile_image_url_https %>"></p>
-    <div id="twitter-icon-sub"><%= image_tag "twitter-256-black.png"%></div>
-    <p><%= link_to "#{user.screen_name}", "https://twitter.com/intent/user?user_id=#{user.id}" %></p>
-    <p><% user.id %></p>
-    <p><%= user.name %></p>
-    <p><%= user.description %></p>
-    <p><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %>
+    <div class="row">
+      <div class="col-lg-1 col-md-1 col-s-1 col-xs-2">
+        <div><img src= "<%= user.profile_image_url_https %>"></div>
+        <div id="twitter-icon-sub"><%= image_tag "twitter-256-black.png"%></div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-s-8 col-xs-6">
+        <div class="full-name"><%= link_to "#{user.name}", "https://twitter.com/intent/user?user_id=#{user.id}" %>&nbsp;<span class="user_name">@<%= user.screen_name %></span></div>
+        <div><% user.id %></div>
+        <div><%= user.description %></div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-s-3 col-xs-4">
+        <div><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %></div>
+      </div>
+    </div>
       <hr>
   <% elsif subscription.media == "vimeo" %>
     <% id = subscription.local_id.to_i %>
     <% user = Vimeo::Simple::User.info(id) %>
-    <p><img width="48px" src="<%= user["portrait_medium"] %>"</p>
-    <p><div id="vimeo-icon-sub"><%= image_tag "vimeo-256-black.png" %></div></p>
-    <p><div><%= link_to "#{user["display_name"]}", "#{user['user_url']}" %></span></div></p>
-    <p><%= user["display_name"] %></p>
-    <P><%= user["bio"] %>
-    <p><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %>
+    <div class="row">
+      <div class="col-lg-1 col-md-1 col-s-1 col-xs-2">
+        <div><img width="48px" src="<%= user["portrait_medium"] %>"></div>
+        <div id="vimeo-icon-sub"><%= image_tag "vimeo-256-black.png" %></div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-s-8 col-xs-6">
+        <div class="full-name"><%= link_to "#{user["display_name"]}", "#{user['user_url']}" %></span></div>
+        <div><%= user["bio"] %></div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-s-3 col-xs-4">
+        <div><%= button_to "Unsubscribe", destroy_subscription_path(id: subscription.id), class: "btn btn-default", method: :delete %></div>
+      </div>
+    </div>
       <hr>
   <% end %>
 <% end %>
+</div>
