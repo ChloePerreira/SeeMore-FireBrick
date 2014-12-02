@@ -37,7 +37,8 @@ RSpec.describe SubscriptionsController, :type => :controller do
 
   describe "GET feed" do
     it "should return a feed page" do
-      session[:user_id] = 8
+      user = User.create
+      session[:user_id] = user.id
       get :feed
       expect(response.status).to eq 200
     end
